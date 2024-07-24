@@ -5,7 +5,11 @@ on:
     branches:
       - main
   workflow_dispatch:
-
+    inputs:
+      port_context:
+        description: 'Port context'
+        required: true
+        type: object
 jobs:
   build:
     runs-on: windows-latest
