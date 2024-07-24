@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -48,7 +49,6 @@ jobs:
 
       - name: API Specification Validation (Spectral)
         run: |
-          # Install Spectral
           spectral lint --ruleset .api/spectral.yml openapi.yaml
 
       - name: Run PowerShell script
@@ -56,4 +56,3 @@ jobs:
           Set-Location -Path .api
           # Run your PowerShell script
           .\everesrapidynamic.ps1
-          
