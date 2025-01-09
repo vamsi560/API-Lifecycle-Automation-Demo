@@ -1,4 +1,4 @@
-# Define the path to your configuration file
+# Define the path to your configuration files
 $configFile = Join-Path $env:GITHUB_WORKSPACE ".api\config.properties"
 
 # Read values from the configuration file
