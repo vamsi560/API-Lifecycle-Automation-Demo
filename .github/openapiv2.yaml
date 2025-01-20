@@ -1,0 +1,47 @@
+openapi: 3.0.0
+info:
+  title: Pet Store API
+  description: This API is to return details about the pet store
+  version: "1.0"
+servers:
+  - url: https://petstoresample.com/api
+    description: Main (production) server
+paths:
+  /pets:
+    get:
+      summary: Retrieve all pets information
+      operationId: getPets
+      tags:
+        - getpet
+      responses:
+        '200':
+          description: A JSON array of pet objects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pet'
+components:
+  schemas:
+    Pet:
+      type: object
+      properties:
+        name:
+          type: string
+        breed:
+          type: string
+        age:
+          type: integer
+        native:
+          type: string
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+security:
+  - ApiKeyAuth: []
+tags:
+  - name: getpet
+    description: Operations related to retrieving pet information
