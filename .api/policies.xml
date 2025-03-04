@@ -1,10 +1,16 @@
 <policies>
     <inbound>
-        <xml-to-json kind="direct" apply="always" consider-accept-header="false" />
         <rate-limit calls="10" renewal-period="60" />
     </inbound>
+    <backend>
+        <!-- Backend policies can be added here -->
+    </backend>
     <outbound>
-        <set-status code="202" reason="Accepted" />
+        <set-header name="X-Custom-Header" exists-action="override">
+            <value>CustomValue</value>
+        </set-header>
     </outbound>
+    <on-error>
+        <!-- On-error policies can be added here -->
+    </on-error>
 </policies>
-
