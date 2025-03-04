@@ -2,8 +2,4 @@ openapi: 3.0.0
 info:
   title: petstore-api
   description: this api has several pets and their details
-  version: 1.0.0
-
-paths:
-  /pets:
-    post:
+  version: 1.0.1
